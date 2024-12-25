@@ -1,0 +1,262 @@
+:root {
+  --primary-color: rgba(91, 33, 182, 1);
+  --secondary-color: rgba(237, 233, 254, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+button {
+  font-family: inherit;
+}
+
+body {
+  background-color: #fff;
+  color: rgb(61 73 92/1);
+
+  height: 100svh;
+  font-family: "Roboto", serif;
+}
+
+input {
+  height: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  padding: 1rem;
+  width: 70% !important;
+  height: 48px;
+}
+
+input:focus-visible {
+  outline: 2px solid var(--primary-color);
+}
+
+#app {
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  width: 650px;
+  max-width: 650px !important;
+  padding: 8px;
+  flex-wrap: wrap;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+label {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.pill-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pill:hover {
+  background-color: rgba(237, 233, 254, 1);
+  color: rgba(91, 33, 182, 1);
+}
+
+.pill.selected {
+  background-color: rgba(237, 233, 254, 1);
+  color: rgba(91, 33, 182, 1);
+}
+
+button {
+  background-color: #494fe3;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #494fe4;
+  color: white;
+}
+
+button:not(:last-child) {
+  margin-right: 10px;
+}
+
+.error {
+  color: red;
+  font-size: 0.75rem;
+  text-align: left;
+  width: 100%;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 14px;
+  color: grey;
+  height: 48px;
+}
+
+.dropdown-content {
+  display: block; /* Keep it block for animation */
+  position: absolute;
+  background-color: #fff;
+  min-width: 230px;
+  overflow: hidden; /* Use hidden to enable sliding effect */
+  z-index: 999;
+  margin-top: 4px;
+  max-height: 0; /* Start with 0 height */
+  width: 100%;
+  text-align: left;
+  border-radius: 6px;
+  transition: max-height 0.3s ease; /* Smooth slide effect */
+}
+
+.dropdown-content span {
+  color: black;
+  padding: 7px 14px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.dropdown-content span:hover {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+.dropdown-selected {
+  color: var(--primary-color) !important;
+  background-color: var(--secondary-color);
+  font-weight: 500;
+}
+
+.dropdown-content.show {
+  max-height: 300px;
+  border: 1px solid #ddd;
+  overflow: auto;
+}
+
+#progress {
+  height: 12px;
+  width: 0%;
+  background-color: #7fbf7d;
+}
+
+#back-btn {
+  position: absolute;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: rgb(102 102 102);
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  top: 2rem;
+}
+
+#next-btn {
+  background-color: #494fe3;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#footer {
+  bottom: 0;
+  display: none;
+  z-index: -1;
+}
+
+#footer-mobile {
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+@media (min-width: 768px) {
+  #footer {
+    display: block;
+    position: absolute;
+  }
+  #footer-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  form {
+    width: 390px;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  label {
+    font-size: 18px;
+  }
+
+  .pill {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+
+  input,
+  .dropdown {
+    height: 40px;
+  }
+
+  #back-btn,
+  #next-btn {
+    font-size: 0.75rem;
+  }
+}
